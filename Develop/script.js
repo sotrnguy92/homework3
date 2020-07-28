@@ -43,14 +43,30 @@ function generatePassword() {
   specialCase = confirm("Would you like to include a special character?");
 
   while (showPassword.length < Number(passwordLength)) {
-    if (lowerCase === true) {
-      showPassword = showPassword.concat(lowerString[Math.floor(Math.random() * 26)])
+    if (lowerCase === true && showPassword.length < Number(passwordLength)) {
+      showPassword = showPassword.concat(
+        lowerString[Math.floor(Math.random() * 26)]
+      );
+    }
+    if (upperCase === true && showPassword.length < Number(passwordLength)) {
+      showPassword = showPassword.concat(
+        upperString[Math.floor(Math.random() * 26)]
+      );
+    }
+    if (numCase === true && showPassword.length < Number(passwordLength)) {
+      showPassword = showPassword.concat(
+        numString[Math.floor(Math.random() * 10)]
+      );
+    }
+    if (specialCase === true && showPassword.length < Number(passwordLength)) {
+      showPassword = showPassword.concat(
+        specialString[Math.floor(Math.random() * 8)]
+      );
     }
   }
 
-
   return showPassword;
 }
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
