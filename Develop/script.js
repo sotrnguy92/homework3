@@ -10,14 +10,28 @@ function writePassword() {
 }
 
 function generatePassword() {
-  passwordLength = 0
+  let passwordLength = 0;
+  let lowerCase;
+  let upperCase;
+  let numCase;
+  let specialCase;
+
   while (passwordLength < 8 || passwordLength > 128){
     passwordLength = prompt("How long would you like your password to be?");
     if (passwordLength < 8 || passwordLength > 128) {
       alert("Please choose a length between 8 and 128");
     }
-  return("hello");
   }
+  
+  lowerCase = confirm("Would you like your password to include lower case letters?");
+
+  upperCase = confirm("Would you like your password to include Uppercase letters?")
+  
+  numCase = confirm("Would you like to include a number in your password?")
+
+  specialCase = confirm("Would you like to include a special character?")
+
+
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
